@@ -7,6 +7,7 @@ for each device.
 
 > The .gitignore for this repro does not track .pem files.
 > Don't commit your keys and certs to public repos.
+> Don't commit your passphrases either (in config.py)
 
 ## Setup Requirements
 
