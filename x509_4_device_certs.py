@@ -17,6 +17,8 @@ from cryptography.x509.oid import NameOID
 from config import COMPANY_INFO, PASSPHRASE, PATH_TO_CERTS, VALID_DAYS
 
 device_id = str(uuid.uuid4())
+print(f"Device ID: {device_id}")
+
 for key_name in PASSPHRASE.keys():
     pem_data = open(f"{PATH_TO_CERTS}{key_name}/key.pem", "rb").read()
     key = serialization.load_pem_private_key(pem_data, PASSPHRASE[key_name])
@@ -51,4 +53,4 @@ for key_name in PASSPHRASE.keys():
     with open(filename, "xb") as f:
         f.write(cert.public_bytes(serialization.Encoding.PEM))
 
-    print(f"Device ID: {device_id} \n\tCertificate: {filename}")
+    print(f"\t{key_name.capitalize()} Cert: {filename}")
